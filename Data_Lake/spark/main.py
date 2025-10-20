@@ -15,6 +15,13 @@ spark = SparkSession.builder \
     .config("spark.jars.packages","org.postgresql:postgresql:42.6.0") \
     .getOrCreate()
 
+from pyspark.sql import SparkSession
+
+# Initialiser SparkSession avec le driver JDBC si besoin
+spark = SparkSession.builder \
+    .appName("ETL PySpark") \
+    .config("spark.jars", "/chemin/vers/postgresql-42.5.0.jar") \
+    .getOrCreate()
 
 # ------------------ PostgreSQL → HDFS ------------------
 try:
